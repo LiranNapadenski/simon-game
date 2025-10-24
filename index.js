@@ -39,7 +39,7 @@ function animatePress(currentColour) {
 
 let inGame = false;
 
-$(document).on("keypress", function(){
+function startGame(){
     if (inGame){
         return;
     }
@@ -47,8 +47,9 @@ $(document).on("keypress", function(){
     $("#level-title").text("Level 0");
     level = 0;
     nextSequence();
+}
 
-});
+$(document).on("keydown touchstart", startGame);
 
 function checkAnswer(currentLevel){
     if(userClickedPattern[currentLevel] == gamePattern[currentLevel]){
